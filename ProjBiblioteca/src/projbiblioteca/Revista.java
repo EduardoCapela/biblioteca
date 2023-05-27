@@ -1,89 +1,34 @@
 
 package projbiblioteca;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+class Revista extends ItemBiblioteca {
+    protected String editora;
 
-public class Revista extends ItemBiblioteca {
-    private String issn;
-    private boolean disponivel;
-    private Date dataDevolucao;
-
-    public Revista() {
-        super();
-    }
-
-    public Revista(String titulo, String autor, int anoPublicacao, String issn) {
+    public Revista(String titulo, String autor, int anoPublicacao, String editora) {
         super(titulo, autor, anoPublicacao);
-        this.issn = issn;
+        this.editora = editora;
     }
 
-    public Revista(Revista outro) {
-        super(outro);
-        this.issn = outro.issn;
+    public String getEditora() {
+        return editora;
     }
 
-    public String getIssn() {
-        return issn;
-    }
-
-    public void setIssn(String issn) {
-        this.issn = issn;
+    public void setEditora(String editora) {
+        this.editora = editora;
     }
 
     @Override
     public void print() {
-        super.print();
-        System.out.println("ISSN: " + issn);
+        System.out.print("Tipo: Revista" + ", titulo: " + titulo  +
+                ", autor: " + autor + 
+                ", anoPublicacao: " + anoPublicacao +
+                ", editora: " + editora);
     }
 
     @Override
-    public double calcularMulta() {
-        if (dataDevolucao == null) {
-            return 0.0; // Não há multa se o livro não estiver emprestado
-        } else {
-            Date dataAtual = new Date();
-            if (dataDevolucao.after(dataAtual)) {
-                // O livro foi devolvido no prazo, não há multa
-                return 0.0;
-            } else {
-                long atrasoMillis = dataAtual.getTime() - dataDevolucao.getTime();
-                long diasAtraso = TimeUnit.MILLISECONDS.toDays(atrasoMillis);
-                double multaPorDia = 0.50; // Valor da multa por dia de atraso
-                double multaTotal = diasAtraso * multaPorDia;
-                return multaTotal;
-            }
-        }
-    }
-
-    @Override
-    public boolean verificarDisponibilidade() {
-        return disponivel;
-    }
-
-    @Override
-    public void emprestar() {
-        if (disponivel) {
-            disponivel = false;
-            // Definir a data de devolução para daqui a 15 dias
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.DATE, 15);
-            dataDevolucao = calendar.getTime();
-            System.out.println("Livro emprestado com sucesso.");
-        } else {
-            System.out.println("Livro não está disponível para empréstimo.");
-        }
-    }
-
-    @Override
-    public void devolver() {
-        if (!disponivel) {
-            disponivel = true;
-            dataDevolucao = null;
-            System.out.println("Livro devolvido com sucesso.");
-        } else {
-            System.out.println("Livro já está disponível.");
-        }
+    public String toString() {
+        return "Tipo: Revista, Título: " + titulo + ", Autor: " + autor +
+                ", Ano de Publicacao: " + anoPublicacao +
+                ", Editora: " + editora;
     }
 }

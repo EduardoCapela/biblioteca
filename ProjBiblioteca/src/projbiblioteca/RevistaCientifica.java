@@ -1,21 +1,13 @@
 
 package projbiblioteca;
 
-public class RevistaCientifica extends Revista {
-    private String areaPesquisa;
 
-    public RevistaCientifica() {
-        super();
-    }
+class RevistaCientifica extends Revista {
+    protected String areaPesquisa;
 
-    public RevistaCientifica(String titulo, String autor, int anoPublicacao, String issn, String areaPesquisa) {
-        super(titulo, autor, anoPublicacao, issn);
+    public RevistaCientifica(String titulo, String autor, int anoPublicacao, String editora, String areaPesquisa) {
+        super(titulo, autor, anoPublicacao, editora);
         this.areaPesquisa = areaPesquisa;
-    }
-
-    public RevistaCientifica(RevistaCientifica outro) {
-        super(outro);
-        this.areaPesquisa = outro.areaPesquisa;
     }
 
     public String getAreaPesquisa() {
@@ -26,9 +18,12 @@ public class RevistaCientifica extends Revista {
         this.areaPesquisa = areaPesquisa;
     }
 
+
     @Override
-    public void print() {
-        super.print();
-        System.out.println("Área de Pesquisa: " + areaPesquisa);
+    public String toString() {
+        return "Tipo: RevistaCientifica, Título: " + titulo + ", Autor: " + autor +
+                ", Ano de Publicacao: " + anoPublicacao +
+                ", Editora: " + editora +
+                ", AreaPesquisa: " + areaPesquisa ;
     }
 }

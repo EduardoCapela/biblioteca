@@ -1,35 +1,22 @@
 
 package projbiblioteca;
 
+import java.io.*;
+import java.util.Objects;
 
-public abstract class ItemBiblioteca implements IExamplar {
+abstract class ItemBiblioteca implements Serializable {
     protected String titulo;
     protected String autor;
     protected int anoPublicacao;
-    // Outros atributos protegidos
-
-    private static int totalItensBiblioteca = 0;
-
-    // Construtores
-    public ItemBiblioteca() {
-        totalItensBiblioteca++;
-    }
+    protected boolean alugado;
+    
 
     public ItemBiblioteca(String titulo, String autor, int anoPublicacao) {
         this.titulo = titulo;
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
-        totalItensBiblioteca++;
     }
 
-    public ItemBiblioteca(ItemBiblioteca outro) {
-        this.titulo = outro.titulo;
-        this.autor = outro.autor;
-        this.anoPublicacao = outro.anoPublicacao;
-        totalItensBiblioteca++;
-    }
-
-    // Métodos de acesso
     public String getTitulo() {
         return titulo;
     }
@@ -54,45 +41,33 @@ public abstract class ItemBiblioteca implements IExamplar {
         this.anoPublicacao = anoPublicacao;
     }
 
-    public static int getTotalItensBiblioteca() {
-        return totalItensBiblioteca;
-    }
+    public abstract void print();
 
-    // Sobreposição dos métodos
     @Override
     public String toString() {
-        return "ItemBiblioteca{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", anoPublicacao=" + anoPublicacao +
-                '}';
+        return "titulo='" + titulo +", autor='" + autor + ", anoPublicacao=" + anoPublicacao;
+    }
+
+    public boolean isAlugado() {
+        return alugado;
+    }
+
+    public void setAlugado(boolean alugado) {
+        this.alugado = alugado;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemBiblioteca that = (ItemBiblioteca) o;
+        return anoPublicacao == that.anoPublicacao &&
+                titulo.equals(that.titulo) &&
+                autor.equals(that.autor);
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-
-    @Override
-    public boolean equals(Object outroObjeto) {
-        if (this == outroObjeto) return true;
-        if (outroObjeto == null || getClass() != outroObjeto.getClass()) return false;
-
-        ItemBiblioteca outro = (ItemBiblioteca) outroObjeto;
-
-        if (anoPublicacao != outro.anoPublicacao) return false;
-        if (titulo != null ? !titulo.equals(outro.titulo) : outro.titulo != null) return false;
-        return autor != null ? autor.equals(outro.autor) : outro.autor == null;
-    }
-
-    // Métodos abstratos
-    public abstract double calcularMulta();
-    public abstract boolean verificarDisponibilidade();
-
-    // Método print()
-    public void print() {
-        System.out.println("Título: " + titulo);
-        System.out.println("Autor: " + autor);
-        System.out.println("Ano de Publicação: " + anoPublicacao);
+    public int hashCode() {
+        return Objects.hash(titulo, autor, anoPublicacao);
     }
 }
