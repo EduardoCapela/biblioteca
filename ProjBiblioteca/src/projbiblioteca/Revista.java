@@ -8,6 +8,11 @@ class Revista extends ItemBiblioteca {
         super(titulo, autor, anoPublicacao);
         this.editora = editora;
     }
+    
+    public Revista() {
+        super("", "", 0);
+        this.editora = "";
+    }
 
     public String getEditora() {
         return editora;
@@ -27,8 +32,7 @@ class Revista extends ItemBiblioteca {
 
     @Override
     public String toString() {
-        return "Tipo: Revista, Título: " + titulo + ", Autor: " + autor +
-                ", Ano de Publicacao: " + anoPublicacao +
+        return "Tipo: Revista, " +  super.toString() +
                 ", Editora: " + editora;
     }
 }

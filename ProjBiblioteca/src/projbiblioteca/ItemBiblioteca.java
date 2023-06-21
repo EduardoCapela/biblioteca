@@ -4,7 +4,7 @@ package projbiblioteca;
 import java.io.*;
 import java.util.Objects;
 
-abstract class ItemBiblioteca implements Serializable {
+abstract class ItemBiblioteca implements IExemplar, Cloneable, Serializable  {
     protected String titulo;
     protected String autor;
     protected int anoPublicacao;
@@ -45,7 +45,8 @@ abstract class ItemBiblioteca implements Serializable {
 
     @Override
     public String toString() {
-        return "titulo='" + titulo +", autor='" + autor + ", anoPublicacao=" + anoPublicacao;
+        return "Título: " + titulo + ", Autor: " + autor +
+                ", Ano de Publicacao: " + anoPublicacao;
     }
 
     public boolean isAlugado() {
@@ -66,8 +67,35 @@ abstract class ItemBiblioteca implements Serializable {
                 autor.equals(that.autor);
     }
 
+    
     @Override
     public int hashCode() {
         return Objects.hash(titulo, autor, anoPublicacao);
     }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+    
+    @Override
+    public void emprestar() {
+        if (!alugado) {
+            alugado = true;
+            System.out.println("Item alugado com sucesso.");
+        } else {
+            System.out.println("O item já está alugado.");
+        }
+    }
+
+    @Override
+    public void devolver() {
+        if (alugado) {
+            alugado = false;
+            System.out.println("Item devolvido com sucesso.");
+        } else {
+            System.out.println("O item já está disponível.");
+        }
+    }
+    
 }

@@ -9,6 +9,11 @@ class RevistaCientifica extends Revista {
         super(titulo, autor, anoPublicacao, editora);
         this.areaPesquisa = areaPesquisa;
     }
+    
+    public RevistaCientifica() {
+        super("", "", 0, "");
+        this.areaPesquisa = "";
+    }
 
     public String getAreaPesquisa() {
         return areaPesquisa;

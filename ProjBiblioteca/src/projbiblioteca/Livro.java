@@ -8,6 +8,11 @@ class Livro extends ItemBiblioteca {
         super(titulo, autor, anoPublicacao);
         this.numPaginas = numPaginas;
     }
+    
+    public Livro() {
+        super("", "", 0);
+        this.numPaginas = 0;
+    }
 
     public int getNumPaginas() {
         return numPaginas;
@@ -24,6 +29,6 @@ class Livro extends ItemBiblioteca {
 
     @Override
     public String toString() {
-        return "Tipo: Livro, " + "Título: " + titulo +", Autor: " + autor + ", Ano de Publicação: " + anoPublicacao+ ", Número de Páginas: " + numPaginas;
+        return "Tipo: Livro, " + super.toString() + ", Número de Páginas: " + numPaginas;
     }
 }

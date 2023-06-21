@@ -5,8 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.util.ArrayList;
+
 
 public class BibliotecaGUI extends JFrame {
     private Biblioteca biblioteca;
@@ -241,13 +240,4 @@ private void adicionarRevistaCientifica(String titulo, String autor, int anoPubl
         exibirListaItens();
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                BibliotecaGUI bibliotecaGUI = new BibliotecaGUI();
-                bibliotecaGUI.setVisible(true);
-            }
-        });
-    }
 }

@@ -4,10 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/RevistaCientifica.java</file>
+            <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/BibliotecaGUI.java</file>
+            <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/Biblioteca.txt</file>
             <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/Livro.java</file>
             <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/ProjBiblioteca.java</file>
             <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/Biblioteca.java</file>
             <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/IExemplar.java</file>
+            <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/Revista.java</file>
             <file>file:/C:/Fac/dev/biblioteca/ProjBiblioteca/src/projbiblioteca/ItemBiblioteca.java</file>
         </group>
     </open-files>
