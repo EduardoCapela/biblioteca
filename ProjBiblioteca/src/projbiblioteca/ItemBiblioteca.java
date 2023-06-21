@@ -3,6 +3,7 @@ package projbiblioteca;
 
 import java.io.*;
 import java.util.Objects;
+import javax.swing.JOptionPane;
 
 abstract class ItemBiblioteca implements IExemplar, Cloneable, Serializable  {
     protected String titulo;
@@ -79,23 +80,23 @@ abstract class ItemBiblioteca implements IExemplar, Cloneable, Serializable  {
     }
     
     @Override
-    public void emprestar() {
-        if (!alugado) {
-            alugado = true;
-            System.out.println("Item alugado com sucesso.");
-        } else {
-            System.out.println("O item já está alugado.");
-        }
+public void emprestar() {
+    if (!alugado) {
+        alugado = true;
+        JOptionPane.showMessageDialog(null, "Item alugado com sucesso.");
+    } else {
+        JOptionPane.showMessageDialog(null, "O item já está alugado.");
     }
+}
 
-    @Override
-    public void devolver() {
-        if (alugado) {
-            alugado = false;
-            System.out.println("Item devolvido com sucesso.");
-        } else {
-            System.out.println("O item já está disponível.");
-        }
+@Override
+public void devolver() {
+    if (alugado) {
+        alugado = false;
+        JOptionPane.showMessageDialog(null, "Item devolvido com sucesso.");
+    } else {
+        JOptionPane.showMessageDialog(null, "O item já está disponível.");
     }
+}
     
 }

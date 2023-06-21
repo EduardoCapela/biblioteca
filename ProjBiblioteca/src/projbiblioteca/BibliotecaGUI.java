@@ -173,6 +173,7 @@ private void adicionarRevistaCientifica(String titulo, String autor, int anoPubl
         if (selectedIndex >= 0) {
             biblioteca.removerItem(selectedIndex);
             listModel.remove(selectedIndex);
+            JOptionPane.showMessageDialog(null, "Item removido com sucesso.");
         } else {
             JOptionPane.showMessageDialog(null, "Nenhum item selecionado.");
         }
@@ -186,6 +187,7 @@ private void adicionarRevistaCientifica(String titulo, String autor, int anoPubl
             String itemString = itemList.getSelectedValue();
             itemString += " (Alugado)";
             listModel.set(selectedIndex, itemString);
+            JOptionPane.showMessageDialog(null, "Item alugado com sucesso.");
         } else {
             JOptionPane.showMessageDialog(null, "Nenhum item selecionado.");
         }
@@ -199,6 +201,7 @@ private void adicionarRevistaCientifica(String titulo, String autor, int anoPubl
             String itemString = itemList.getSelectedValue();
             itemString = itemString.replace(" (Alugado)", "");
             listModel.set(selectedIndex, itemString);
+            JOptionPane.showMessageDialog(null, "Item devolvido com sucesso.");
         } else {
             JOptionPane.showMessageDialog(null, "Nenhum item selecionado.");
         }
