@@ -2,7 +2,7 @@
 
 This is a mini-project for collage.
 
-This is a simple library management application where you can add books, magazines and scientific journals, as well as rent them and save your progress.
+This is a simple library management desktop application where you can add books, magazines and scientific journals, as well as rent them and save your progress.
 
 ## Technologies Used
 
